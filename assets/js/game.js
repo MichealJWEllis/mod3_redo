@@ -122,3 +122,5 @@ for (var i = 0; i < enemyNames.length; i++) {
         break;
     }
 }
+
+// added comment to create commit point. 
