@@ -112,8 +112,13 @@ var fight = function (enemyName) {
 
 // fight();
 for (var i = 0; i < enemyNames.length; i++) {
-    //debugger;
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
-    fight(pickedEnemyName);
+    if (playerHealth > 0) {
+        window.alert("Welcome to Robo Gladiators! Round " + (i + 1));
+        var pickedEnemyName = enemyNames[i];
+        enemyHealth = 50;
+        fight(pickedEnemyName);
+    } else {
+        window.alert("You have lost your robo in battle!  Game OVA!");
+        break;
+    }
 }
