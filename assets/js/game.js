@@ -61,7 +61,7 @@ var fight = function (enemyName) {
         }
 
         // remove enemy's health by subtracting the amount set in the playerAttack variable
-        enemyHealth = enemyHealth - playerAttack;
+        enemyHealth = Math.max(0, enemyHealth - playerAttack);
         console.log(
             playerName +
             " attacked " +
@@ -78,8 +78,7 @@ var fight = function (enemyName) {
             window.alert(enemyName + " has died!");
 
             // award player money for winning
-            playerMoney = playerMoney + 20;
-
+            playerMoney = Math.max(0, playerMoney - 10);
             // leave while() loop since enemy is dead
             break;
         } else {
@@ -87,7 +86,7 @@ var fight = function (enemyName) {
         }
 
         // remove players's health by subtracting the amount set in the enemyAttack variable
-        playerHealth = playerHealth - enemyAttack;
+        playerHealth = Math.max(0, playerHealth - enemyAttack);
         console.log(
             enemyName +
             " attacked " +
@@ -121,7 +120,7 @@ var startGame = function () {
         if (playerHealth > 0 ) {
             window.alert("Welcome to Robo Gladiators! Round " + (i + 1));
             var pickedEnemyName = enemyNames[i];
-            enemyHealth = 50;
+            enemyHealth = Math.floor(Math.random() * 60);
             fight(pickedEnemyName);
             // if we're not at the last enemy in the array
             if(playerHealth > 0 && i < enemyNames.length -1 ){
