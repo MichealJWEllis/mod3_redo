@@ -35,6 +35,17 @@ window.alert("Welcome to Robot Gladiators!");
 //     statement
 //  }
 
+// function to set name 
+var getPlayerName = function() {
+    var name = "";
+
+    while(name === "" || name === null){
+        name = prompt("What is your robos name?");
+    }
+
+    console.log("Rogo's name " + name);
+}
+
 var fight = function (enemy) {
     //console.log(enemy);
     while (playerInfo.health > 0 && enemy.health > 0) {
@@ -185,7 +196,7 @@ var randomNumber = function (max, min) {
     return value;
 }
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 30,
     money: 50,
@@ -230,6 +241,8 @@ var enemyInfo = [
         attack: randomNumber(10, 14)
     }
 ];
+
+
 
 startGame();
 
